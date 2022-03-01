@@ -2,5 +2,14 @@ import React from "react";
 import "./Weather.css";
 
 export default function Weather() {
-  return <div className="Weather">Hello from Weather</div>;
+  return (
+    <div className="Weather">
+      <h1>New York</h1>
+      <ul>
+        <li>Wednesday, 7:30am CEST</li>
+        <li>Mostly cloudy</li>
+      </ul>
+      Hello from Weather
+    </div>
+  );
 }
