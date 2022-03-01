@@ -9,6 +9,14 @@ export default function Weather() {
         <li>Wednesday, 7:30am CEST</li>
         <li>Mostly cloudy</li>
       </ul>
+      <div className="row">
+        <div className="col-6">
+          <img
+            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+            alt="sunny"
+          />
+        </div>
+      </div>
       Hello from Weather
     </div>
   );
