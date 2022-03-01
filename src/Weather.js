@@ -15,6 +15,7 @@ export default function Weather() {
             src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
             alt="sunny"
           />
+          6°C
         </div>
       </div>
       Hello from Weather
