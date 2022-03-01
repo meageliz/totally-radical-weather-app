@@ -17,6 +17,13 @@ export default function Weather() {
           />
           6°C
         </div>
+        <div className="col-6">
+          <ul>
+            <li>Precipitation: 15%</li>
+            <li>Humidity: 60%</li>
+            <li>Wind: 13 km/h</li>
+          </ul>
+        </div>
       </div>
       Hello from Weather
     </div>
