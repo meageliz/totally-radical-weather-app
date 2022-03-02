@@ -3,6 +3,8 @@
   border: 1px solid #dadde1;
   padding: 16px;
   border-radius: 4px;
+  margin: 30px auto;
+  max-width: 800px;
   color: rgb(135, 135, 135);
 }
 
