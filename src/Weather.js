@@ -54,11 +54,17 @@ if (ready) {
             </ul>
           </div>
     );
-}
-
-  const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
+} else {
+const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
   let city = "London";
   let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${city}}&appid=${apiKey}`;
-  axios.get(apiUrl).then(handleResponse);
+  axios.get(apiUrl).then(handleResponse); 
+  
+  return (
+      "Loading..."
+  );
+}
+
+ 
   
 }
