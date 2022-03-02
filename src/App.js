@@ -1,5 +1,6 @@
 import "./App.css";
 import Weather from "./Weather";
+import CoderCred from "./CoderCred";
 
 function App() {
   return (
@@ -7,16 +8,7 @@ function App() {
       <div className="container">
         <h1>Totally Radical Weather App</h1>
         <Weather />
-        <footer>
-          <a
-            href="https://github.com/meageliz/totally-radical-weather-app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open-source code
-          </a>{" "}
-          created by Meag Gardner
-        </footer>
+        <CoderCred />
       </div>
     </div>
   );
