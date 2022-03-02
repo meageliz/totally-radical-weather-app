@@ -6,7 +6,8 @@ export default function Weather() {
   const [ready, setReady] = useState(false);
   const [temperature, setTemperature] = useState(null);
   function handleResponse(response) {
-    setTemperature(response.data.main.temp);
+    setTemperature(Math.round(response.data.main.temp));
+    setTemperature(true);
   }
 
 if (ready) {
