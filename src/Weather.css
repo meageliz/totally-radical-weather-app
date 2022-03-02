@@ -29,3 +29,14 @@
   line-height: 19px;
   list-style: none;
 }
+
+.Weather img {
+  height: 64px;
+  display: inline-block;
+}
+
+.Weather .temperature {
+}
+
+.Weather .unit {
+}

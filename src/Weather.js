@@ -5,7 +5,7 @@ export default function Weather() {
   return (
     <div className="Weather">
       <form>
-        <div className="row">
+        <div className="row mt-3">
           <div className="col-9">
             <input
               type="search"
@@ -24,13 +24,19 @@ export default function Weather() {
         <li>Wednesday, 7:30am CEST</li>
         <li>Mostly cloudy</li>
       </ul>
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-            alt="sunny"
-          />
-          6°C
+          <div className="clearfix">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+              alt="sunny"
+              className="float-left"
+            />
+            <div className="float-left">
+              <div className="temperature">6</div>
+              <div className="unit">°C</div>
+            </div>
+          </div>
         </div>
         <div className="col-6">
           <ul>
