@@ -11,7 +11,7 @@ function App() {
           <a
             href="https://github.com/meageliz/totally-radical-weather-app"
             target="_blank"
-            rel="no-referrer"
+            rel="noreferrer"
           >
             Open-source code
           </a>{" "}
