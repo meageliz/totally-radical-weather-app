@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Totally Radical Weather App</h1>
         <Weather />
         <CoderCred />
       </div>
