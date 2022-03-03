@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
     setWeatherData ({
+        ready: true,
         temperature: response.data.main.temp,
         description: response.data.main.weather[0].description,
         wind: response.data.wind.speed,
@@ -15,10 +15,9 @@ export default function Weather() {
         iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
         date: "Wednesday at 7:09am",
     });
-    setReady(true);
   }
 
-if (ready) {
+if (weatherData.ready) {
     return (
       <div className="Weather">
         <form>
@@ -63,16 +62,12 @@ if (ready) {
           </div>
     );
 } else {
-  let apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
+  const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
   let city = "London";
-  let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${city}}&appid=${apiKey}`;
+  let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}`;
   axios.get(apiUrl).then(handleResponse); 
   
-  return (
-      "Loading..."
-  );
-}
-
- 
-  
+  return 
+      "Loading...";
+} 
 }
