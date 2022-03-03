@@ -4,10 +4,18 @@ import axios from "axios";
 
 export default function Weather() {
   const [ready, setReady] = useState(false);
-  const [temperature, setTemperature] = useState(null);
+  const [weatherData, setWeatherData] = useState({});
   function handleResponse(response) {
-    setTemperature(Math.round(response.data.main.temp));
-    setTemperature(true);
+    setWeatherData ({
+        temperature: response.data.main.temp,
+        description: response.data.main.weather[0].description,
+        wind: response.data.wind.speed,
+        city: response.data.name,
+        humidity: response.data.main.humidity,
+        iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
+        date: "Wednesday at 7:09am",
+    });
+    setReady(true);
   }
 
 if (ready) {
@@ -28,35 +36,34 @@ if (ready) {
             </div>
           </div>
         </form>
-        <h1>New York</h1>
+        <h1>{weatherData.city}</h1>
         <ul>
-          <li>Wednesday, 7:30am CEST</li>
-          <li>Mostly cloudy</li>
+          <li>{weatherData.date}</li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row mt-3">
           <div className="col-6">
             <div className="clearfix">
               <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt="sunny"
+                src={weatherData.iconUrl}
+                alt={weatherData.description}
                 className="float-left"
               />
               <div className="float-left">
-                <div className="temperature">6</div>
+                <div className="temperature">{weatherData.temperature}</div>
                 <div className="unit">°C</div>
               </div>
             </div>
           </div>
           <div className="col-6">
             <ul>
-              <li>Precipitation: 15%</li>
-              <li>Humidity: 60%</li>
-              <li>Wind: 13 km/h</li>
+              <li>Humidity: {weatherData.humidity}%</li>
+              <li>Wind: {weatherData.wind} km/h</li>
             </ul>
           </div>
     );
 } else {
-const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
+  let apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
   let city = "London";
   let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${city}}&appid=${apiKey}`;
   axios.get(apiUrl).then(handleResponse); 
