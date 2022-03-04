@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
-import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -25,6 +25,10 @@ export default function Weather(props) {
     // search for a city
   }
 
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -36,6 +40,7 @@ export default function Weather(props) {
                 placeholder="Pick a city, any city..."
                 className="form-control"
                 autoFocus="on"
+                onChange={handleCityChange}
               />
             </div>
             <div className="col-3">
@@ -48,7 +53,7 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
-    let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}`;
+    let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading...";
   }
