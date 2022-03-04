@@ -11,7 +11,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
-      description: response.data.main.weather[0].description,
+      description: response.data.weather[0].description,
       date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
       city: response.data.name,
@@ -31,7 +31,7 @@ export default function Weather(props) {
 
   function search() {
     const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
-    let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
