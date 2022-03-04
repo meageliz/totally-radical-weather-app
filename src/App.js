@@ -1,6 +1,7 @@
 import "./App.css";
 import Weather from "./Weather";
 import CoderCred from "./CoderCred";
+import React from "react";
 
 function App() {
   return (
