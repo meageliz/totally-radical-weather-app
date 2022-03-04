@@ -20,10 +20,15 @@ export default function Weather(props) {
     });
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    // search for a city
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row mt-3">
             <div className="col-9">
               <input
