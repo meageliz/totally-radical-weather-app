@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import "./Weather.css";
-import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import axios from "axios";
+import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
     setWeatherData({
       ready: true,
@@ -19,12 +20,6 @@ export default function Weather(props) {
     });
   }
 
-  function search() {
-    const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
-    let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -34,11 +29,17 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
+  function search() {
+    const apiKey = "53315a4c01471ff10f1bbba4b3a95f94";
+    let apiUrl = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
-          <div className="row mt-3">
+          <div className="row">
             <div className="col-9">
               <input
                 type="search"
@@ -49,7 +50,11 @@ export default function Weather(props) {
               />
             </div>
             <div className="col-3">
-              <input type="submit" value="Submit" className="btn btn-primary" />
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
             </div>
           </div>
         </form>
