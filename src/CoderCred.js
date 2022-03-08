@@ -10,7 +10,7 @@ export default function CoderCred() {
         rel="noreferrer"
         className="gitLink"
       >
-        Open-source code
+        Open-source code{" "}
       </a>
       created by{" "}
       <a
