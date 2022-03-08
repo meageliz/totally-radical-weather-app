@@ -11,8 +11,16 @@ export default function CoderCred() {
         className="gitLink"
       >
         Open-source code
-      </a>{" "}
-      created by Meag Gardner
+      </a>
+      created by{" "}
+      <a
+        href="https://www.linkedin.com/in/meagangardner/"
+        target="_blank"
+        rel="noreferrer"
+        className="Linkedin"
+      >
+        Meag Gardner
+      </a>
     </footer>
   );
 }
