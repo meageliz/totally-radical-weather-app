@@ -44,3 +44,7 @@
   line-height: 1;
   top: -34px;
 }
+
+.Weather .float-left {
+  float: left;
+}
