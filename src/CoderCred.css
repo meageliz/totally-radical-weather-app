@@ -1,4 +1,13 @@
 .CoderCred {
   text-align: center;
-  margin: 10px 0;
+  margin: 30px 0;
+  font-family: "PT Mono", monospace;
+}
+
+.CoderCred .gitLink {
+  color: #407ed6;
+}
+
+.CoderCred .Linkedin {
+  color: #407ed6;
 }
